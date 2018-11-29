@@ -13,13 +13,9 @@ class App extends Component {
       requests: [
         '/asshole/cat',
         '/back/human/cat',
-        '/bag/cat',
         '/because/cat',
         '/blackadder/human/cat',
-        '/bucket/cat',
-        '/cocksplat/human/cat',
         '/cool/cat',
-        '/cup/cat',
         '/deraadt/human/cat',
         '/diabetes/cat',
         '/donut/human/cat',
@@ -73,7 +69,7 @@ class App extends Component {
     axios
       .get(
         `https://www.foaas.com${
-          this.state.requests[Math.ceil(Math.random() * 51)]
+          this.state.requests[Math.ceil(Math.random() * 48)]
         }`
       )
       .then(response => {
@@ -95,7 +91,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Have you ever wondered what your cat thinks?</h1>
-        <img alt="cat" src={this.state.image} />
+        <img src={this.state.image} />
         <p>{this.state.message}</p>
         <h2 className={this.state.status}>Click the button to find out!</h2>
         <button onClick={this.api}>Show me what my cat thinks!</button>
