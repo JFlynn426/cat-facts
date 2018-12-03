@@ -72,19 +72,15 @@ class App extends Component {
           this.state.requests[Math.ceil(Math.random() * 48)]
         }`
       )
-      .then(response => {
-        this.setState({
-          message: response.data.message
+      .then(foaasResponse => {
+        axios.get('https://aws.random.cat/meow').then(catResponse => {
+          this.setState({
+            image: catResponse.data.file,
+            message: foaasResponse.data.message,
+            status: 'hidden'
+          })
         })
       })
-    axios.get('https://aws.random.cat/meow').then(response => {
-      this.setState({
-        image: response.data.file
-      })
-    })
-    this.setState({
-      status: 'hidden'
-    })
   }
 
   render() {
